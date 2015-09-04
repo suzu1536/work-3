@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+  <title>Nail Salon Brillant</title>
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+  <style>
+    /*    .carousel-inner img {width:100%;}*/
+
+  </style>
+  <script src="js/jquery-2.1.4.js"></script>
+  <script src="js/bootstrap.js"></script>
+  <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+  <script>
+    jQuery(function($) {
+      function replace_yt() {
+        $('.yt_wrapper').each(function(index, element) {
+          var this$ = $(this);
+          var yt_src = this$.find('a').attr('href').replace(/http(s)?:\/\/www.youtube.com\/watch\?v=/, "");
+          yt_src = "http://www.youtube.com/embed/" + yt_src;
+          var html = '<div class="youtube"><iframe src="' + yt_src + '" frameborder="0" allowfullscreen></iframe></div>';
+          this$.append(html);
+          var h3_html = this$.find('h3').html();
+          h3_html = h3_html.replace(/<a href=&#91;^>]+>/, "");
+          h3_html = h3_html.replace(/<\/a>/, "");
+          this$.find('h3').html(h3_html);
+        });
+      }
+
+      if ($(window).width() > 600) {
+        if ($('.yt_wrapper').length > 0) {
+          replace_yt();
+        }
+      }
+      var timer = false;
+      $(window).resize(function() {
+        var w = $(window).width()
+        if (timer !== false) {
+          clearTimeout(timer);
+        }
+        timer = setTimeout(function() {
+          if (w > 600) {
+            if ($('.yt_wrapper').length > 0 && $('.youtube iframe').length === 0) {
+              replace_yt();
+            }
+          }
+        }, 200);
+      });
+    });
+
+  </script>
+</head>
+
+<body>
+
+  <!--header-->
+  <div class="header" id="header">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <a herf="gallery.html">
+            <img src="images/logo_8.png" alt="logo" class="logo"></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--//header-->
+
+  <!--headerNav-->
+  <div class="headerNav">
+    <div class="container">
+      <div class="row headerNavBox">
+        <a href="#header">
+          <div class="col-xs-6 col-sm-3 headerNavBtn">
+            top
+          </div>
+        </a>
+        <a href="#gallery">
+          <div class="col-xs-6 col-sm-3 headerNavBtn">
+            gallery
+          </div>
+        </a>
+        <a href="#sub">
+          <div class="col-xs-6 col-sm-3 headerNavBtn">
+            information
+          </div>
+        </a>
+        <a href="#form">
+          <div class="col-xs-6 col-sm-3 headerNavBtn">
+            contact
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+  <!--//headerNav-->
+
+
+  <!--mainVisual-->
+  <div class="mainVisual_wrapper section">
+    <div class="container">
+      <img src="images/main-img2.jpg" alt="" class="img-responsive mainVisual">
+      <div class="main-info">
+        <h1>Nale Salon Brillant</h1>
+      </div>
+      <div class="main-info2">
+        <h3>あなたの個性を指先から。。。。</h3>
+      </div>
+      <div id="sub-photo">
+        <a href="gallery.html">other gallery ⇒ <i class="fa fa-camera-retro fa-2x pull right"></i></a>
+      </div>
+    </div>
+  </div>
+  <!--//mainVisual-->。
+
+  <!--section-->
+  <div class="section">
+    <div class="container" id="gallery">
+      <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-3">
+          <div class="col_box clearfix">
+            <div class="col-xs-6 col-sm-12">
+              <img src="images/sub-img4.jpg" alt="" class="img-responsive" style="width:100%;">
+            </div>
+            <div class="col-xs-6 col-sm-12">
+              お客様のご要望を聞いて、セミオーダーから完全オリジナルまで！
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-3">
+          <div class="col_box clearfix">
+            <div class="col-xs-6 col-sm-12">
+              <img src="images/sub-img2.jpg" alt="" class="img-responsive" style="width:100%;">
+            </div>
+            <div class="col-xs-6 col-sm-12">
+              人気の個室。予約制ですのでお早めにお問合せ下さい。
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-3">
+          <div class="col_box clearfix">
+            <div class="col-xs-6 col-sm-12">
+              <img src="images/sub-img3.jpg" alt="" class="img-responsive" style="width:100%;">
+            </div>
+            <div class="col-xs-6 col-sm-12">
+              サンプルネイルは１００種類以上☆きっとお気に入りがみつかります。
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-3">
+          <div class="col_box clearfix">
+            <div class="col-xs-6 col-sm-12">
+              <img src="images/sub-img1.jpg" alt="" class="img-responsive" style="width:100%;">
+            </div>
+            <div class="col-xs-6 col-sm-12">
+              スタッフは全員資格を持ち、技術は一流！もちろんご指名できます。
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-3">
+          <div class="col_box clearfix">
+            <div class="col-xs-6 col-sm-12">
+              <img src="images/sub-img8.jpg" alt="" class="img-responsive" style="width:100%;">
+            </div>
+            <div class="col-xs-6 col-sm-12">
+              夏はフットネイルも人気。フットマッサージ付のプランもございます。
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-3">
+          <div class="col_box clearfix">
+            <div class="col-xs-6 col-sm-12">
+              <img src="images/sub-img10.jpg" alt="" class="img-responsive" style="width:100%;">
+            </div>
+            <div class="col-xs-6 col-sm-12">
+              ブライダルプランもございますので、お気軽にお尋ねください。
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-3">
+          <div class="col_box clearfix">
+            <div class="col-xs-6 col-sm-12">
+              <img src="images/sub-img6.jpg" alt="" class="img-responsive" style="width:100%;">
+            </div>
+            <div class="col-xs-6 col-sm-12">
+              当店のネイリストは、某雑誌は各業界でも活躍しています。
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-3">
+          <div class="col_box clearfix">
+            <div class="col-xs-6 col-sm-12">
+              <img src="images/sub-img7.jpg" alt="" class="img-responsive" style="width:100%;">
+            </div>
+            <div class="col-xs-6 col-sm-12">
+              全国の数々のコンテストで入賞！技術には自信があります！
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--//section-->
+
+  <!-- -->
+  <div id="sub">
+    <h2><span class="glyphicon glyphicon-th-list" id="list"></span>　menu</h2>
+    <p>お手頃価格なので、毎月ネイルに通っているお洒落女子の方におススメ★
+      <br>
+      <br>可愛いものから大人なデザインまで対応できますので、ちょっとしたことでもご相談ください。
+      <br>
+      <br>☆選べるサンプルジェル(シンプルアート2本付)……３，９８０円(オフ込)
+      <br>☆選べるサンプルジェル(デザインアート2本付)……４，５００円(オフ込)
+      <br>☆選べるサンプルジェル(変形フレンチ＋アート2本付)……５，２００円(オフ込)
+      <br>☆平日１０時～１７時限定　シンプルジェル……３，２００円(オフ込)
+      <br>☆フットジェル　１カラー(フットバス付)……５，４００円(オフ込)
+      <br>☆ジェルオフなしの方限定　１カラー＆グラデーション……３，１５０円
+      <br>※他にもメニューございますので、お気軽にお尋ねください！
+    </p>
+  </div>
+
+
+
+  <!-- 動画 -->
+  <div class="yt_wrapper">
+    <div class="youtube">
+      <!--       <div class="embed-responsive embed-responsive-16by9" id="video">-->
+      <iframe width="640" height="360" src="https://www.youtube.com/embed/x4nb2kEdnEk" frameborder="0" allowfullscreen>
+      </iframe>
+    </div>
+  </div>
+
+
+  <!--form-->
+  <div id="form">
+    <div class="container">
+      <h2>《Mail Form》</h2>
+      <div class="row">
+        <div class="col-sm-9">
+          <form action="#" class="form-horizontal">
+            <div class="form-group">
+              <label for="input-name" class="col-sm-2 control-label">お名前</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="input-name" placeholder="お名前" required="required">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="input-mail" class="col-sm-2 control-label">メールアドレス</label>
+              <div class="col-sm-10">
+                <input type="email" class="form-control" id="input-mail" placeholder="メールアドレス" required="required">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">ご用件</label>
+              <div class="col-sm-10">
+                <select class="form-control">
+                  <option value="">選択してください</option>
+                  <option value="ご質問・お問い合わせ">ご質問・お問い合わせ</option>
+                  <option value="ご意見・ご感想">ご意見・ご感想</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">お問い合わせ内容</label>
+              <div class="col-sm-10">
+                <textarea class="form-control" rows="5" required="required"></textarea>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-default">送信</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+    </div>
+    <!-- /container -->
+  </div>
+  <!-- /form -->
+  <!--//form-->
+
+  <!--information -->
+
+  <!--//information-->
+
+
+  <!--footer-->
+
+  <div class="footer">
+    <div class="container">
+      <a href="#top"><span class="glyphicon glyphicon-collapse-up fa-2x" id="icon"></span></a>
+      <div id="logo"><img src="images/logo_4.png"></div>
+      <div class="col-lg-10 col-lg-offset-1 text-center">
+        <h4><strong>Nail Salon Brillant</strong>
+                    </h4>
+        <p>福岡市博多区博多駅前xx-xxxx
+          <br>エキサイトビル1階</p>
+        <ul class="list-unstyled">
+          <li><i class="fa fa-phone fa-fw"></i> (123) 456-7890</li>
+          <li><i class="fa fa-envelope-o fa-fw"></i> <a href="mailto:name@example.com">name@example.com</a>
+          </li>
+        </ul>
+        <br>
+        <ul class="list-inline">
+          <li>
+            <a href="#"><i class="fa fa-facebook fa-fw fa-3x"></i></a>
+          </li>
+          <li>
+            <a href="#"><i class="fa fa-twitter fa-fw fa-3x"></i></a>
+          </li>
+          <li>
+            <a href="#"><i class="fa fa-dribbble fa-fw fa-3x"></i></a>
+          </li>
+        </ul>
+        <span class="copyright" id="copyright">
+			 &copy; <a href="#">Copyright Nail Salon Beau</a>
+		</span>
+      </div>
+    </div>
+    <!--//footer-->
+
+
+</body>
+
+</html>
